@@ -60,6 +60,7 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
 ## Limitations et bugs connus
 ### Limitations
 • Aucune mise à jour automatique (TM ne met pas d'API à disposition pour faire ça)
+
 • L'historique des pannes n'est pas encore fonctionnel dans cette version
 
 ### Bugs
@@ -72,5 +73,7 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
 ## Historique des versions
 ### Version 1.0 (02/03/2025)
 • Première version publique
+
 • Affichage de la liste des véhicules: Fonctionnel
+
 • Affichage de l'historique des pannes: Fonctionnel
