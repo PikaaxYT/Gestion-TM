@@ -10,7 +10,7 @@ if ($conn->connect_error) {
 }
 
 // Requête SQL pour récupérer les véhicules
-$sql = "SELECT * FROM Vehicules"; // Adapte si nécessaire en fonction des noms des colonnes
+$sql = "SELECT * FROM Vehicules";
 $result = $conn->query($sql);
 
 $data = [];
