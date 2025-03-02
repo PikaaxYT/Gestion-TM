@@ -47,6 +47,7 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
 ### Bugs
 • Ne pas mettre d'accents dans les données SQL sinon le tableau ne s'affichera pas sur la page SQL
 • Les élements du menu en haut de page s'affiche en bleu comme des liens hypertextes classiques, rendant la lisibilité compliquée
+• Si la colonne ID de la table Vehicules ou IDVehicule de la table Pannes n'est pas définie comme clé primaire alors la colonne ID du tableau affichera null sur toutes les lignes
 
 ## Historique des versions
 ### Version 1.0 (02/03/2025)
