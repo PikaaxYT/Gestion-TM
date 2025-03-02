@@ -26,6 +26,19 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
 
 3. Insérer les données de vos véhicules dans la table SQL
 
+4. Définir la colonne ID en tant que clé primaire
+
+5. Créer une 2ème table SQL nommée "Pannes avec les colonnes suivantes:
+• IDVehicule (Type INT)
+• Date (Type DATE)
+• TypePanne (Type TEXT)
+• MontantPanne (Type INT)
+• PriseEnCharge (Type TEXT)
+
+6. Définir la colonne IDVehicule en tant que clé primaire
+
+7. À chaque immobilisation d'un véhicule dans TM, reporter les informations dans la table SQL
+
 ## Limitations et bugs connus
 ### Limitations
 • Aucune mise à jour automatique (TM ne met pas d'API à disposition pour faire ça)
@@ -36,6 +49,7 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
 • Les élements du menu en haut de page s'affiche en bleu comme des liens hypertextes classiques, rendant la lisibilité compliquée
 
 ## Historique des versions
-### Version 0.1 (02/03/2025)
+### Version 1.0 (02/03/2025)
 • Première version publique
 • Affichage de la liste des véhicules: Fonctionnel
+• Affichage de l'historique des pannes: Fonctionnel
