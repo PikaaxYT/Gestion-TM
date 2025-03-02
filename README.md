@@ -71,6 +71,12 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
 • Si la colonne ID de la table Vehicules ou IDVehicule de la table Pannes n'est pas définie comme clé primaire alors la colonne ID du tableau affichera null sur toutes les lignes
 
 ## Historique des versions
+### Version 1.0.1 (02/03/2025)
+• Ajout des couleurs pour les colonnes Carburant, État Technique, État Intérieur, CT, Révision et Statut:
+   - Les colonnes Carburant, État Technique et État Intérieur utilisent les couleurs de TM
+   - Pour les CT, en Rouge si le CT est dépassé, en Jaune si le CT expire dans moins d'un mois, sinon en Vert
+   - Pour les Révisions, en Rouge si pas de révision ou si plus de 6 mois, en Jaune si la révision entre 5 et 6 mois, sinon en Vert
+   - Pour le Statut, en Vert si en service, en Jaune si au dépot, en Rouge si le véhicule est à l'atelier, en Gris si le véhicule est en attente de commande
 ### Version 1.0 (02/03/2025)
 • Première version publique
 
