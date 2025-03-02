@@ -33,6 +33,7 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
 
 ### Bugs
 • Ne pas mettre d'accents dans les données SQL sinon le tableau ne s'affichera pas sur la page SQL
+• Les élements du menu en haut de page s'affiche en bleu comme des liens hypertextes classiques, rendant la lisibilité compliquée
 
 ## Historique des versions
 ### Version 0.1 (02/03/2025)
