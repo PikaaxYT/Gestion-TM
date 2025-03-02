@@ -9,7 +9,7 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
 ### Installation
 1. Placer les fichiers à la racine de votre serveur ou dans un dossier dedié dans le cas d'un serveur où se trouve déjà des pages web
 
-2. Créer une table SQL avec les colonnes suivantes:
+2. Créer une table SQL nommée "Véhicules" avec les colonnes suivantes:
 • ID (Type INT)
 • Modele (Type TEXT)
 • Carburant (Type TEXT)
