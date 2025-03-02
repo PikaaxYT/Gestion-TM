@@ -57,6 +57,12 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
 
 7. À chaque immobilisation d'un véhicule dans TM, reporter les informations dans la table SQL
 
+## Mise à jour
+
+1. Télecharger la dernière version
+
+2. Remplacer tous les fichiers de l'ancienne version (sauf config.php) par ceux de la nouvelle version
+
 ## Limitations et bugs connus
 ### Limitations
 • Aucune mise à jour automatique (TM ne met pas d'API à disposition pour faire ça)
