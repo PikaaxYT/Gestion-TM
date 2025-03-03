@@ -66,7 +66,14 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
 
 1. Télecharger la dernière version
 
-2. Remplacer tous les fichiers de l'ancienne version (sauf config.php) par ceux de la nouvelle version
+2. Vérifier les notes de mises à jour en cas de modification dans la structure des fichiers ou de la base SQL
+
+3. Si demandé dans les notes de mise à jour, appliquer les éventuelles modifications dans la structure des fichiers
+
+4. Remplacer tous les fichiers de l'ancienne version (sauf config.php) par ceux de la nouvelle version
+
+5. Si demandé dans les notes de mise à jour, appliquer les éventuelles modifications dans la base SQL
+
 
 ## Limitations et bugs connus
 ### Limitations
