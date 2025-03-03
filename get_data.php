@@ -10,7 +10,7 @@ if ($conn->connect_error) {
 }
 
 // Requête SQL pour récupérer les véhicules
-$sql = "SELECT * FROM Vehicules";
+$sql = "SELECT * FROM Vehicules ORDER BY ID ASC";
 $result = $conn->query($sql);
 
 $data = [];
