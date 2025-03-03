@@ -50,6 +50,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Modèle</th>
+                    <th>Type de Véhicule</th>
+                    <th>Catégorie</th>
                     <th>Carburant</th>
                     <th>Places</th>
                     <th>KM</th>
@@ -152,6 +154,8 @@
 
             let tdID = `<td>${vehicule.ID}</td> <!-- Correspond à la clé 'ID' du PHP -->`;
             let tdModele = `<td>${vehicule.Modele}</td> <!-- Correspond à la clé 'Modele' du PHP -->`;
+            let tdTypeVehicule = `<td>${vehicule.TypeVehicule}</td> <!-- Correspond à la clé 'TypeVehicule' du PHP -->`;
+            let tdCategorie = `<td>${vehicule.Categorie}</td> <!-- Correspond à la clé 'Categorie' du PHP -->`;
             
             // Modification de couleur pour le carburant
             let colorCarb = getCarbColor(vehicule.Carburant);
@@ -199,7 +203,7 @@
             let colorStatut = getStatutColor(vehicule.Statut);
             let tdStatut = `<td style="${colorStatut}">${vehicule.Statut}</td> <!-- Correspond à la clé 'Statut' du PHP -->`;
 
-            row.innerHTML = tdID + tdModele + tdCarburant + tdPlaces + tdKM + 
+            row.innerHTML = tdID + tdModele + tdTypeVehicule + tdCategorie + tdCarburant + tdPlaces + tdKM + 
                             tdEtatTechnique + tdEtatInterieur + tdMES + tdGarantie + 
                             tdCT + tdRevision + tdArgus + tdStatut;
 

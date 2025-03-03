@@ -14,3 +14,9 @@
 	font-size: large;
 	padding: 20px;
 }
+
+.button {
+	display: block;
+	background-color: #0000bb;
+	color: #ffffff;
+}

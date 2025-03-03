@@ -116,7 +116,7 @@ $stmt->bind_param("issssiiiissssis", $id, $typeVehicule, $categorie, $modele, $c
 
 // Vérifier l'exécution de la requête
 if ($stmt->execute()) {
-    echo "Véhicule ajouté avec succès !";
+    echo "Véhicule ajouté avec succès !<br>";
     echo "Vous serez automatiquement redirigé à la liste des véhicules dans 2 secondes";
     echo '<script>
         setTimeout(function() {

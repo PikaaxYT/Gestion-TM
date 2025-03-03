@@ -18,17 +18,19 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $data[] = [
             'ID' => $row['ID'],
-            'Modele' => !empty($row['Modele']) ? $row['Modele'] : "Inconnu",
-            'Carburant' => !empty($row['Carburant']) ? $row['Carburant'] : "Inconnu",
-            'Places' => !empty($row['Places']) ? $row['Places'] : "Inconnu",
-            'KM' => !empty($row['KM']) ? $row['KM'] : "Non renseigné",
-            'EtatTechnique' => !empty($row['EtatTechnique']) ? $row['EtatTechnique'] : "Inconnu",
-            'EtatInterieur' => !empty($row['EtatInterieur']) ? $row['EtatInterieur'] : "Inconnu",
-		'MES' => !empty($row['MES']) && $row['MES'] != '0000-00-00' ? date('Y-m-d', strtotime($row['MES'])) : 'Date Inconnue',
+            'Modele' => !empty($row['Modele']) ? $row['Modele'] : "?",
+            'TypeVehicule' => !empty($row['TypeVehicule']) ? $row['TypeVehicule'] : "?",
+            'Categorie' => !empty($row['Categorie']) ? $row['Categorie'] : "?",
+            'Carburant' => !empty($row['Carburant']) ? $row['Carburant'] : "?",
+            'Places' => !empty($row['Places']) ? $row['Places'] : "?",
+            'KM' => !empty($row['KM']) ? $row['KM'] : "?",
+            'EtatTechnique' => !empty($row['EtatTechnique']) ? $row['EtatTechnique'] : "?",
+            'EtatInterieur' => !empty($row['EtatInterieur']) ? $row['EtatInterieur'] : "?",
+		'MES' => !empty($row['MES']) && $row['MES'] != '0000-00-00' ? date('Y-m-d', strtotime($row['MES'])) : '?',
 		'Garantie' => !empty($row['Garantie']) && $row['Garantie'] != '0000-00-00' ? date('Y-m-d', strtotime($row['Garantie'])) : 'Non',
-		'CT' => !empty($row['CT']) && $row['CT'] != '0000-00-00' ? date('Y-m-d', strtotime($row['CT'])) : 'Date Inconnue',
+		'CT' => !empty($row['CT']) && $row['CT'] != '0000-00-00' ? date('Y-m-d', strtotime($row['CT'])) : '?',
             'Revision' => !empty($row['Revision']) && $row['Revision'] != '0000-00-00' ? date('Y-m-d', strtotime($row['Revision'])) : 'Jamais',
-            'Argus' => !empty($row['Argus']) ? $row['Argus']: 'Inconnu',
+            'Argus' => !empty($row['Argus']) ? $row['Argus']: '?',
             'Statut' => !empty($row['Statut'])  ? $row['Statut'] : '?',
         ];
     }

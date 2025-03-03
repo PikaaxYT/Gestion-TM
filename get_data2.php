@@ -10,7 +10,7 @@ if ($conn->connect_error) {
 }
 
 // Requête SQL pour récupérer les véhicules
-$sql = "SELECT * FROM Pannes";
+$sql = "SELECT * FROM Pannes ORDER BY Date DESC";
 $result = $conn->query($sql);
 
 $data = [];
