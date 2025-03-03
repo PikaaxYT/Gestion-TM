@@ -1,8 +1,8 @@
 <?php
 return [
-    'host' => 'sql107.infinityfree.com',
-    'user' => 'if0_38346401',
-    'pwd' => 'Nt22082008A',
-    'db' => 'if0_38346401_vehicules_tm',
+    'host' => '[ADRESSE IP DU SERVEUR]',
+    'user' => '[NOM D'UTILISATEUR]',
+    'pwd' => '[MOT DE PASSE]',
+    'db' => '[NOM DE VOTRE BASE DE DONNÉES SQL]',
 ];
 ?>
