@@ -4,6 +4,7 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
 ## Comment utiliser cet outil ?
 ### Prérequis
 • Un serveur web
+
 • Une base de données SQL
 
 ### Installation
@@ -14,6 +15,10 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
 • ID (Type INT)
 
 • Modele (Type TEXT)
+
+• TypeVehicule (Type TEXT) - À partir de la version 1.0.2-beta2
+
+• Categorie (Type TEXT) - À partir de la version 1.0.2-beta2
 
 • Carburant (Type TEXT)
 
