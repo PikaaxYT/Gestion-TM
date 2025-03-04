@@ -60,7 +60,7 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
 
 6. Définir la colonne IDVehicule en tant que clé primaire
 
-7. À chaque immobilisation d'un véhicule dans TM, reporter les informations dans la table SQL
+7. À chaque immobilisation d'un véhicule dans TM, reporter les informations dans la table SQL et reporter les données de vos véhicules via la page Ajouter un véhicule ou via PhpMyAdmin
 
 ## Mise à jour
 
@@ -78,8 +78,6 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
 ## Limitations et bugs connus
 ### Limitations
 • Aucune mise à jour automatique (TM ne met pas d'API à disposition pour faire ça)
-
-• L'historique des pannes n'est pas encore fonctionnel dans cette version
 
 ### Bugs
 • Ne pas mettre d'accents dans les données SQL sinon le tableau ne s'affichera pas sur la page SQL
