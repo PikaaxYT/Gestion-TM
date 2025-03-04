@@ -1,0 +1,98 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <link href="styles.css" rel="stylesheet">
+    <link href="fonts.css" rel="stylesheet">
+    <title>Affectations - Outil de gestion TM (par Pikaax)</title>
+    <style>
+        /* Style pour le tableau */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 6px;
+            text-align: center;
+        }
+        th {
+            background-color: #0000bb;
+            color: #ffffff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="header outfit-regular">
+        <center><h1>Outil de gestion TM</h1></center>
+    </div>
+    <div class="header-menu outfit-regular">
+        <center>        
+            <a href="accueil.html" class="header-menu-elt">Accueil</a>
+            <a href="affectations.html" class="header-menu-elt active">Affectations</a>
+            <a href="vehicules.html" class="header-menu-elt">Véhicules</a>
+            <a href="ajout-vehicule.html" class="header-menu-elt">Ajouter un véhicule</a>
+            <a href="pannes.html" class="header-menu-elt">Historique des pannes</a>
+            <a href="declaration-panne.html" class="header-menu-elt">Déclarer une panne</a>
+        </center>
+    </div>
+    <div class="outfit-regular">
+        <h1>Affectations</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Modèle</th>
+                    <th>HC</th>
+                    <th>HP</th>
+                    <th>HS</th>
+                    <th>HSaC</th>
+                    <th>HSaP</th>
+                    <th>HSaS</th>
+                    <th>HDC</th>
+                    <th>HDP</th>
+                </tr>
+            </thead>
+            <tbody id="vehicules"></tbody>
+        </table>
+    </div>
+    <script>
+    
+    // Récupération des données depuis get_data3.php
+    fetch("get_data3.php")
+    .then(response => response.json())
+    .then(data => {
+        let tbody = document.getElementById("vehicules");
+        data.forEach(vehicule => {
+            let row = document.createElement("tr");
+
+            let tdID = `<td>${vehicule.ID}</td> <!-- Correspond à la clé 'ID' du PHP -->`;
+            let tdModele = `<td>${vehicule.Modele}</td> <!-- Correspond à la clé 'Modele' du PHP -->`;
+            let tdHC = `<td>${vehicule.HC}</td> <!-- Correspond à la clé 'HC' du PHP -->`;
+            let tdHP = `<td>${vehicule.HP}</td> <!-- Correspond à la clé 'HP' du PHP-->`;
+            let tdHS = `<td>${vehicule.HS}</td> <!-- Correspond à la clé 'HS' du PHP -->`;
+            let tdHSaC = `<td>${vehicule.HSaC}</td> <!-- Correspond à la clé 'HSaC' du PHP -->`;
+            let tdHSaP = `<td>${vehicule.HSaP}</td> <!-- Correspond à la clé 'HSaP' du PHP -->`;
+            let tdHSaS = `<td>${vehicule.HSaS}</td> <!-- Correspond à la clé 'HSaS' du PHP -->`;
+            let tdHDC = `<td>${vehicule.HDC}</td> <!-- Correspond à la clé 'HDC' du PHP -->`;
+            let tdHDP = `<td>${vehicule.HDP}</td> <!-- Correspond à la clé 'HDP' du PHP -->`;
+            
+
+            row.innerHTML = tdID + tdModele + tdHC + tdHP + tdHS + tdHSaC + tdHSaP + 
+                            tdHSaS + tdHDC + tdHDP;
+
+            tbody.appendChild(row);
+        });
+    })
+    .catch(error => console.error("Erreur : " + error));
+	</script>
+</body>
+</html>
