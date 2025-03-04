@@ -87,6 +87,19 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
 • Si la colonne ID de la table Vehicules ou IDVehicule de la table Pannes n'est pas définie comme clé primaire alors la colonne ID du tableau affichera null sur toutes les lignes
 
 ## Historique des versions
+### Version 1.0.2 (03/03/2025)
+• Il est maintenant d’ajouter un véhicule via l’outil de gestion
+
+• Il est maintenant possible de déclarer une panne dans l’outil de gestion
+
+• Affichage des pannes les plus récentes en 1er
+
+• Affichage des véhicules par ordre croissant de numérotation
+
+• Le type de véhicule et la catégorie figurent maintenant dans la liste des véhicules
+
+• Lisibilité améliorée: les éléments du menu s’affichent maintenant en blanc
+
 ### Version 1.0.1 (02/03/2025)
 • Ajout des couleurs pour les colonnes Carburant, État Technique, État Intérieur, CT, Révision et Statut:
    - Les colonnes Carburant, État Technique et État Intérieur utilisent les couleurs de TM
