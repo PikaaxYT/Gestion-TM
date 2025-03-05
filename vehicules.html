@@ -36,6 +36,7 @@
     </div>
     <div class="header-menu outfit-regular">
         <center>        
+            <a href="http://pikaax.rf.gd/index.html" class="header-menu-elt">Retour au site</a>
             <a href="accueil.html" class="header-menu-elt active">Accueil</a>
             <a href="vehicules.html" class="header-menu-elt">Véhicules</a>
             <a href="ajout-vehicule.html" class="header-menu-elt">Ajouter un véhicule</a>
@@ -68,7 +69,15 @@
             <tbody id="vehicules"></tbody>
         </table>
     </div>
-    <script>
+    <!--Importation des scripts DateJS-->
+	<script type="text/javascript" src="/scripts/core.js"></script>
+	<script type="text/javascript" src="/scripts/time.js"></script>
+	<script type="text/javascript" src="/scripts/parser.js"></script>
+	<script type="text/javascript" src="/scripts/sugarpak.js"></script>
+	<script type="text/javascript" src="/scripts/extras.js"></script>
+	<script type="text/javascript" src="/scripts/date-fr-FR.js"></script>
+	<!--Script JS du site-->
+	<script>
      // Fonction pour calculer la couleur de la colonne Carburant
     function getCarbColor(Carb) {
         if (Carb === "Diesel") {
@@ -89,9 +98,9 @@
             return ""; // Pas de couleur pour les dates invalides
         }
 
-        let today = new Date(); // Date du jour
+        let today = new Date().Today; // Date du jour
         let ct = new Date(ctDate); // Conversion de la date du CT
-        let oneMonthLater = new Date();
+        let oneMonthLater = new Date().Today;
         oneMonthLater.setMonth(oneMonthLater.getMonth() + 1); // Date + 1 mois
         
         if (isNaN(ct.getTime())) {

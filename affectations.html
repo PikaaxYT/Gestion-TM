@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <link href="styles.css" rel="stylesheet">
     <link href="fonts.css" rel="stylesheet">
-    <title>Affectations - Outil de gestion TM (par Pikaax)</title>
+    <title>Liste des véhicules - Outil de gestion TM (par Pikaax)</title>
     <style>
         /* Style pour le tableau */
         table {
@@ -36,6 +36,7 @@
     </div>
     <div class="header-menu outfit-regular">
         <center>        
+            <a href="http://pikaax.rf.gd/index.html" class="header-menu-elt">Retour au site</a>
             <a href="accueil.html" class="header-menu-elt">Accueil</a>
             <a href="affectations.html" class="header-menu-elt active">Affectations</a>
             <a href="vehicules.html" class="header-menu-elt">Véhicules</a>
@@ -45,7 +46,8 @@
         </center>
     </div>
     <div class="outfit-regular">
-        <h1>Affectations</h1>
+        <center><h1>Affectations</h1>
+        <button onclick="validerModifications()">Valider</button><center>
         <table>
             <thead>
                 <tr>
@@ -76,20 +78,67 @@
 
             let tdID = `<td>${vehicule.ID}</td> <!-- Correspond à la clé 'ID' du PHP -->`;
             let tdModele = `<td>${vehicule.Modele}</td> <!-- Correspond à la clé 'Modele' du PHP -->`;
-            let tdHC = `<td>${vehicule.HC}</td> <!-- Correspond à la clé 'HC' du PHP -->`;
-            let tdHP = `<td>${vehicule.HP}</td> <!-- Correspond à la clé 'HP' du PHP-->`;
-            let tdHS = `<td>${vehicule.HS}</td> <!-- Correspond à la clé 'HS' du PHP -->`;
-            let tdHSaC = `<td>${vehicule.HSaC}</td> <!-- Correspond à la clé 'HSaC' du PHP -->`;
-            let tdHSaP = `<td>${vehicule.HSaP}</td> <!-- Correspond à la clé 'HSaP' du PHP -->`;
-            let tdHSaS = `<td>${vehicule.HSaS}</td> <!-- Correspond à la clé 'HSaS' du PHP -->`;
-            let tdHDC = `<td>${vehicule.HDC}</td> <!-- Correspond à la clé 'HDC' du PHP -->`;
-            let tdHDP = `<td>${vehicule.HDP}</td> <!-- Correspond à la clé 'HDP' du PHP -->`;
+            
+            // Fonction pour créer un menu déroulant avec la valeur actuelle
+                function createSelect(name, value) {
+                    return `
+                        <td>
+                            <select name="${name}" data-id="${vehicule.ID}">
+                                <option value=" " ${value === " " ? "selected" : ""}>-</option>
+                                <option value="1" ${value === "1" ? "selected" : ""}>Ligne 1</option>
+                                <option value="2" ${value === "2" ? "selected" : ""}>Ligne 2</option>
+                                <option value="3" ${value === "3" ? "selected" : ""}>Ligne 3</option>
+                                <option value="4" ${value === "4" ? "selected" : ""}>Ligne 4</option>
+                                <option value="5" ${value === "5" ? "selected" : ""}>Ligne 5</option>
+                                <option value="6" ${value === "6" ? "selected" : ""}>Ligne 6</option>
+                                <option value="7" ${value === "7" ? "selected" : ""}>Ligne 7</option>
+                            </select>
+                        </td>
+                    `;
+                }
+                
+            let tdHC = createSelect("HC", vehicule.HC);
+            let tdHP = createSelect("HP", vehicule.HP);
+            let tdHS = createSelect("HS", vehicule.HS);
+            let tdHSaC = createSelect("HSaC", vehicule.HSaC);
+            let tdHSaP = createSelect("HSaP", vehicule.HSaP);
+            let tdHSaS = createSelect("HSaS", vehicule.HSaS);
+            let tdHDC = createSelect("HDC", vehicule.HDC);
+            let tdHDP = createSelect("HDP", vehicule.HDP);
             
 
             row.innerHTML = tdID + tdModele + tdHC + tdHP + tdHS + tdHSaC + tdHSaP + 
                             tdHSaS + tdHDC + tdHDP;
 
             tbody.appendChild(row);
+            
+            // Fonction pour valider les modifications et les envoyer en AJAX
+        function validerModifications() {
+            let updates = [];
+
+            document.querySelectorAll("select").forEach(select => {
+                let id = select.getAttribute("data-id");
+                let name = select.getAttribute("name");
+                let value = select.value;
+
+                updates.push({ id, name, value });
+            });
+
+            fetch("maj_affectations.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ updates })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Modifications enregistrées !");
+                } else {
+                    alert("Erreur lors de l'enregistrement.");
+                }
+            })
+            .catch(error => console.error("Erreur AJAX :", error));
+        }
         });
     })
     .catch(error => console.error("Erreur : " + error));
