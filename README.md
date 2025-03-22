@@ -83,6 +83,7 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
 • HDP
 
 Les colonnes ci-dessus correspondent aux créneaux horaires de TM
+
 Les ID de vos véhicules doivent correspondre aux ID de la table Vehicules pour permettre la récupération automatique du modèle du véhicule
 
 ## Mise à jour
