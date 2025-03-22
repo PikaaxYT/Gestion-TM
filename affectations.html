@@ -36,7 +36,6 @@
     </div>
     <div class="header-menu outfit-regular">
         <center>        
-            <a href="http://pikaax.rf.gd/index.html" class="header-menu-elt">Retour au site</a>
             <a href="accueil.html" class="header-menu-elt">Accueil</a>
             <a href="affectations.html" class="header-menu-elt active">Affectations</a>
             <a href="vehicules.html" class="header-menu-elt">Véhicules</a>
@@ -47,7 +46,7 @@
     </div>
     <div class="outfit-regular">
         <center><h1>Affectations</h1>
-        <button onclick="validerModifications()">Valider</button><center>
+        <button id="btn-valider" onclick="validerModifications()">Valider</button><center>
         <table>
             <thead>
                 <tr>
@@ -67,36 +66,65 @@
         </table>
     </div>
     <script>
-    
-    // Récupération des données depuis get_data3.php
-    fetch("get_data3.php")
+    // Fonction pour valider les modifications et les envoyer en AJAX
+function validerModifications() {
+    console.log("Bouton cliqué !");
+    let updates = [];
+
+    document.querySelectorAll("select").forEach(select => {
+        let id = select.getAttribute("data-id");
+        let name = select.getAttribute("name");
+        let value = select.value;
+
+        updates.push({ id, name, value });
+        console.log(updates);
+    });
+
+    fetch("maj_affectations.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ updates })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert("Modifications enregistrées !");
+        } else {
+            alert("Erreur lors de l'enregistrement.");
+        }
+    })
+    .catch(error => console.error("Erreur AJAX :", error));
+}
+
+// Récupération des données depuis get_data3.php
+fetch("get_data3.php")
     .then(response => response.json())
     .then(data => {
         let tbody = document.getElementById("vehicules");
         data.forEach(vehicule => {
             let row = document.createElement("tr");
 
-            let tdID = `<td>${vehicule.ID}</td> <!-- Correspond à la clé 'ID' du PHP -->`;
-            let tdModele = `<td>${vehicule.Modele}</td> <!-- Correspond à la clé 'Modele' du PHP -->`;
-            
+            let tdID = `<td>${vehicule.ID}</td>`;
+            let tdModele = `<td>${vehicule.Modele}</td>`;
+
             // Fonction pour créer un menu déroulant avec la valeur actuelle
-                function createSelect(name, value) {
-                    return `
-                        <td>
-                            <select name="${name}" data-id="${vehicule.ID}">
-                                <option value=" " ${value === " " ? "selected" : ""}>-</option>
-                                <option value="1" ${value === "1" ? "selected" : ""}>Ligne 1</option>
-                                <option value="2" ${value === "2" ? "selected" : ""}>Ligne 2</option>
-                                <option value="3" ${value === "3" ? "selected" : ""}>Ligne 3</option>
-                                <option value="4" ${value === "4" ? "selected" : ""}>Ligne 4</option>
-                                <option value="5" ${value === "5" ? "selected" : ""}>Ligne 5</option>
-                                <option value="6" ${value === "6" ? "selected" : ""}>Ligne 6</option>
-                                <option value="7" ${value === "7" ? "selected" : ""}>Ligne 7</option>
-                            </select>
-                        </td>
-                    `;
-                }
-                
+            function createSelect(name, value) {
+                return `
+                    <td>
+                        <select name="${name}" data-id="${vehicule.ID}">
+                            <option value=" " ${value === " " ? "selected" : ""}>-</option>
+                            <option value="1" ${value === "1" ? "selected" : ""}>Ligne 1</option>
+                            <option value="2" ${value === "2" ? "selected" : ""}>Ligne 2</option>
+                            <option value="3" ${value === "3" ? "selected" : ""}>Ligne 3</option>
+                            <option value="4" ${value === "4" ? "selected" : ""}>Ligne 4</option>
+                            <option value="5" ${value === "5" ? "selected" : ""}>Ligne 5</option>
+                            <option value="6" ${value === "6" ? "selected" : ""}>Ligne 6</option>
+                            <option value="7" ${value === "7" ? "selected" : ""}>Ligne 7</option>
+                        </select>
+                    </td>
+                `;
+            }
+
             let tdHC = createSelect("HC", vehicule.HC);
             let tdHP = createSelect("HP", vehicule.HP);
             let tdHS = createSelect("HS", vehicule.HS);
@@ -105,40 +133,11 @@
             let tdHSaS = createSelect("HSaS", vehicule.HSaS);
             let tdHDC = createSelect("HDC", vehicule.HDC);
             let tdHDP = createSelect("HDP", vehicule.HDP);
-            
 
             row.innerHTML = tdID + tdModele + tdHC + tdHP + tdHS + tdHSaC + tdHSaP + 
                             tdHSaS + tdHDC + tdHDP;
 
             tbody.appendChild(row);
-            
-            // Fonction pour valider les modifications et les envoyer en AJAX
-        function validerModifications() {
-            let updates = [];
-
-            document.querySelectorAll("select").forEach(select => {
-                let id = select.getAttribute("data-id");
-                let name = select.getAttribute("name");
-                let value = select.value;
-
-                updates.push({ id, name, value });
-            });
-
-            fetch("maj_affectations.php", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ updates })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert("Modifications enregistrées !");
-                } else {
-                    alert("Erreur lors de l'enregistrement.");
-                }
-            })
-            .catch(error => console.error("Erreur AJAX :", error));
-        }
         });
     })
     .catch(error => console.error("Erreur : " + error));
