@@ -46,7 +46,7 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
 
 4. Définir la colonne ID en tant que clé primaire
 
-5. Créer une 2ème table SQL nommée "Pannes avec les colonnes suivantes:
+5. Créer une 2ème table SQL nommée "Pannes" avec les colonnes suivantes:
    
 • IDVehicule (Type INT)
 
@@ -61,6 +61,19 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
 6. Définir la colonne IDVehicule en tant que clé primaire
 
 7. À chaque immobilisation d'un véhicule dans TM, reporter les informations dans la table SQL et reporter les données de vos véhicules via la page Ajouter un véhicule ou via PhpMyAdmin
+
+8. Créer une 3ème table SQL nommée "Affectations" avec les colonnes suivantes de type INT:
+• ID (clé primaire)
+• HC
+• HP
+• HS
+• HSaC
+• HSaP
+• HSaS
+• HDC
+• HDP
+Les colonnes ci-dessus correspondent aux créneaux horaires de TM
+Les ID de vos véhicules doivent correspondre aux ID de la table Vehicules pour permettre la récupération automatique du modèle du véhicule
 
 ## Mise à jour
 
@@ -87,6 +100,8 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
 • Si la colonne ID de la table Vehicules ou IDVehicule de la table Pannes n'est pas définie comme clé primaire alors la colonne ID du tableau affichera null sur toutes les lignes
 
 ## Historique des versions
+### Version 1.1 (22/03/2025)
+• Il est maintenant possible de visualiser et modifier les affectations de ses véhicules
 ### Version 1.0.2 (03/03/2025)
 • Il est maintenant d’ajouter un véhicule via l’outil de gestion
 
