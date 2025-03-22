@@ -63,15 +63,25 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
 7. À chaque immobilisation d'un véhicule dans TM, reporter les informations dans la table SQL et reporter les données de vos véhicules via la page Ajouter un véhicule ou via PhpMyAdmin
 
 8. Créer une 3ème table SQL nommée "Affectations" avec les colonnes suivantes de type INT:
+   
 • ID (clé primaire)
+
 • HC
+
 • HP
+
 • HS
+
 • HSaC
+
 • HSaP
+
 • HSaS
+
 • HDC
+
 • HDP
+
 Les colonnes ci-dessus correspondent aux créneaux horaires de TM
 Les ID de vos véhicules doivent correspondre aux ID de la table Vehicules pour permettre la récupération automatique du modèle du véhicule
 
