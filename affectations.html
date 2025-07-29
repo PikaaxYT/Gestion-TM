@@ -36,7 +36,8 @@
     </div>
     <div class="header-menu outfit-regular">
         <center>        
-            <a href="accueil.html" class="header-menu-elt">Accueil</a>
+            <a href="http://pikaax.rf.gd/index.html" class="header-menu-elt">Retour au site</a>
+            <a href="accueil.php" class="header-menu-elt">Accueil</a>
             <a href="affectations.html" class="header-menu-elt active">Affectations</a>
             <a href="vehicules.html" class="header-menu-elt">Véhicules</a>
             <a href="ajout-vehicule.html" class="header-menu-elt">Ajouter un véhicule</a>
@@ -52,14 +53,17 @@
                 <tr>
                     <th>ID</th>
                     <th>Modèle</th>
-                    <th>HC</th>
-                    <th>HP</th>
-                    <th>HS</th>
-                    <th>HSaC</th>
-                    <th>HSaP</th>
-                    <th>HSaS</th>
-                    <th>HDC</th>
-                    <th>HDP</th>
+                    <th>Creuses</th>
+                    <th>Pointes</th>
+                    <th>Soir</th>
+                    <th>Nuit</th>
+                    <th>Samedi Creuses</th>
+                    <th>Samedi Pointes</th>
+                    <th>Samedi Soir</th>
+                    <th>Samedi Nuit</th>
+                    <th>Dimanche Creuses</th>
+                    <th>Dimanche Pointe</th>
+                    <th>Dimanche Nuit</th>
                 </tr>
             </thead>
             <tbody id="vehicules"></tbody>
@@ -124,18 +128,35 @@ fetch("get_data3.php")
                     </td>
                 `;
             }
+            
+            // Version de createSelect spéciale pour les nocturnes 
+            function createSelect2(name, value) {
+                return `
+                    <td>
+                        <select name="${name}" data-id="${vehicule.ID}">
+                            <option value=" " ${value === " " ? "selected" : ""}>-</option>
+                            <option value="1001" ${value === "1001" ? "selected" : ""}>Ligne PL1</option>
+                            <option value="1002" ${value === "1002" ? "selected" : ""}>Ligne PL2</option>
+                            <option value="1003" ${value === "1003" ? "selected" : ""}>Ligne PL3</option>
+                        </select>
+                    </td>
+                `;
+            }
 
             let tdHC = createSelect("HC", vehicule.HC);
             let tdHP = createSelect("HP", vehicule.HP);
             let tdHS = createSelect("HS", vehicule.HS);
+            let tdHN = createSelect2("HN", vehicule.HN);
             let tdHSaC = createSelect("HSaC", vehicule.HSaC);
             let tdHSaP = createSelect("HSaP", vehicule.HSaP);
             let tdHSaS = createSelect("HSaS", vehicule.HSaS);
+            let tdHSaN = createSelect2("HSaN", vehicule.HSaN);
             let tdHDC = createSelect("HDC", vehicule.HDC);
             let tdHDP = createSelect("HDP", vehicule.HDP);
+            let tdHDN = createSelect2("HDN", vehicule.HDN);
 
-            row.innerHTML = tdID + tdModele + tdHC + tdHP + tdHS + tdHSaC + tdHSaP + 
-                            tdHSaS + tdHDC + tdHDP;
+            row.innerHTML = tdID + tdModele + tdHC + tdHP + tdHS + tdHN + tdHSaC + tdHSaP + 
+                            tdHSaS + tdHSaN + tdHDC + tdHDP + tdHDN;
 
             tbody.appendChild(row);
         });

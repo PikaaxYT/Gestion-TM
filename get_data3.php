@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 
 // Requête SQL pour récupérer les véhicules
 $sql = "SELECT Vehicules.ID, Vehicules.Modele, 
-               Affectations.HC, Affectations.HP, Affectations.HS, Affectations.HSaC, Affectations.HSaP, Affectations.HDC, Affectations.HDP
+               Affectations.HC, Affectations.HP, Affectations.HS, Affectations.HN, Affectations.HSaC, Affectations.HSaP, Affectations.HSaS, Affectations.HSaN, Affectations.HDC, Affectations.HDP, Affectations.HDN
         FROM Vehicules 
         LEFT JOIN Affectations ON Vehicules.ID = Affectations.ID 
         ORDER BY Vehicules.ID ASC";
@@ -26,11 +26,14 @@ if ($result->num_rows > 0) {
             'HC' => !empty($row['HC']) ? $row['HC'] : " ",
             'HP' => !empty($row['HP']) ? $row['HP'] : " ",
             'HS' => !empty($row['HS']) ? $row['HS'] : " ",
+            'HN' => !empty($row['HN']) ? $row['HN'] : " ",
             'HSaC' => !empty($row['HSaC']) ? $row['HSaC'] : " ",
             'HSaP' => !empty($row['HSaP']) ? $row['HSaP'] : " ",
             'HSaS' => !empty($row['HSaS']) ? $row['HSaS'] : " ",
+            'HSaN' => !empty($row['HSaN']) ? $row['HSaN'] : " ",
             'HDC' => !empty($row['HDC']) ? $row['HDC'] : " ",
             'HDP' => !empty($row['HDP']) ? $row['HDP'] : " ",
+            'HDN' => !empty($row['HDN']) ? $row['HDN'] : " ",
         ];
     }
 }

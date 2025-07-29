@@ -30,3 +30,12 @@
 	color: #ffffff;
 	padding: 4px;
 }
+
+.formulaire {
+	background-color: #eeeeee;
+	border-radius: 20px;
+	box-shadow: #cccccc 5px 5px 5px;
+	width: 50%;
+	margin: auto;
+	padding: 10px;
+}
