@@ -8,7 +8,7 @@
 	background-color: #0000bb;
 }
 
-.a.header-menu-elt:link, a.header-menu-elt:visited {
+a.header-menu-elt:link, a.header-menu-elt:visited {
 	background-color: #0000bb;
 	color: #ffffff;
 	font-size: large;
@@ -16,7 +16,7 @@
 	text-decoration: none;
 }
 
-.a.header-menu-elt:active, a.header-menu-elt:hover {
+a.header-menu-elt:active, a.header-menu-elt:hover {
 	background-color: #0000bb;
 	color: #cccccc;
 	font-size: large;
@@ -24,7 +24,7 @@
 	text-decoration: none;
 }
 
-.button {
+button {
 	display: block;
 	background-color: #0000bb;
 	color: #ffffff;
@@ -38,4 +38,18 @@
 	width: 50%;
 	margin: auto;
 	padding: 10px;
+}
+
+.bouton-login {
+	display: block;
+	background: linear-gradient(90deg,rgba(6, 0, 117, 1) 0%, rgba(0, 0, 194, 1) 50%, rgba(0, 103, 194, 1) 100%);
+	color: #fffff;
+	border-radius: 999px;
+	box-shadow: #cccccc 3px 3px 3px;
+	padding: 3px;
+}
+
+a.bouton-login {
+	color: #ffffff;
+	text-decoration: none;
 }

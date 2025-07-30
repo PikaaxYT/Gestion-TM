@@ -1,4 +1,9 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // Connexion à la base de données
 $config = include 'config.php';
 
@@ -64,4 +69,35 @@ $conn->query("
 		FOREIGN KEY (ID) REFERENCES Vehicules(ID)
 	);
 ");
+
+// Table Utilisateur
+$conn->query("
+	CREATE TABLE IF NOT EXISTS Utilisateur (
+		ID INT PRIMARY KEY,
+		MDP VARCHAR(255),
+		Niveau INT
+	);
+");
+
+$result = $conn->query("SELECT MDP FROM Utilisateur WHERE id = 1");
+
+if ($result && $row = $result->fetch_assoc()) {
+    if (empty($row['MDP'])) {
+        $mdp = 'azerty';
+        $hash = password_hash($mdp, PASSWORD_DEFAULT);
+        $conn->query("UPDATE Utilisateur SET MDP = '$hash' WHERE ID = 1");
+    }
+} else {
+    $mdp = 'azerty';
+    $hash = password_hash($mdp, PASSWORD_DEFAULT);
+    $conn->query("INSERT INTO Utilisateur (ID, MDP, Niveau) VALUES (1, '$hash', 0)");
+}
+
+echo "Les tables SQL ont été créées avec succès !";
+echo "Vous serez automatiquement redirigé à l'accueil dans 2 secondes";
+    echo '<script>
+        setTimeout(function() {
+            window.location.href = "accueil.php";
+        }, 2000);
+    </script>';
 ?>
