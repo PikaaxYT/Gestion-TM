@@ -43,6 +43,11 @@ Outil de gestion auto-hébergé pour le jeu Transport-Manager (jeu sur navigateu
 • Les élements du menu en haut de page s'affiche en bleu comme des liens hypertextes classiques lorsqu'ils n'ont pas été cliqués, rendant la lisibilité compliquée
 
 ## Historique des versions
+### Version 1.3 (30/07/2025)
+• Un mot de passe est nécessaire pour se connecter
+
+• Il est possible de sélectionner son niveau en jeu afin de n'afficher que les lignes disponibles à son niveau (actuellement seules les lignes jusqu'au N3 sont intégrées)
+
 ### Version 1.2 (29/07/2025)
 • Les créneaux nocturnes sont désormais intégrés aux affectation (lignes PL1, PL2 et PL3)
 
