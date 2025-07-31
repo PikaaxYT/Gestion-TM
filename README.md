@@ -1,5 +1,5 @@
 # Gestion-TM
-Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
+Outil de gestion auto-hébergé pour le jeu Transport-Manager (jeu sur navigateur)
 
 ## Comment utiliser cet outil ?
 ### Prérequis
@@ -14,7 +14,11 @@ Outil de gestion pour le jeu Transport-Manager (jeu sur navigateur)
    
 3. Ouvrir le fichier install.php à l'aide de votre navigateur
 
-4. Vous êtes prets à ajouter vos véhicules
+4. Connectez vous à l'aide du mot de passe par défaut (azerty)
+
+5. Vous êtes prets à ajouter vos véhicules
+
+6. RECOMMANDÉ: Changez le mot de passe en allant dans les paramètres, en particulier si cet outil est accessible en dehors de votre réseau local
 
 ## Mise à jour
 
