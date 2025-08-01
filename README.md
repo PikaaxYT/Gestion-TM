@@ -43,6 +43,13 @@ Outil de gestion auto-hébergé pour le jeu Transport-Manager (jeu sur navigateu
 • Les élements du menu en haut de page s'affiche en bleu comme des liens hypertextes classiques lorsqu'ils n'ont pas été cliqués, rendant la lisibilité compliquée
 
 ## Historique des versions
+### Version 1.3.1 (01/08/2025)
+• Les lignes des niveaux 4 et 5 ont été ajoutées
+
+• Seules les lignes de nuit accessibles à votre niveau s’affichent
+
+• Il est possible d’éditer le kilométrage, l’état technique, l’état intérieur, la date du CT, la date de la dernière révision et l’argus depuis l’interface du site
+
 ### Version 1.3 (30/07/2025)
 • Un mot de passe est nécessaire pour se connecter
 
