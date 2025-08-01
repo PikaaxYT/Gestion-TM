@@ -8,18 +8,18 @@
 	background-color: #0000bb;
 }
 
-a.header-menu-elt:link, a.header-menu-elt:visited {
+.a.header-menu-elt:link, a.header-menu-elt:visited {
 	background-color: #0000bb;
 	color: #ffffff;
-	font-size: large;
+	font-size: medium;
 	padding: 20px;
 	text-decoration: none;
 }
 
-a.header-menu-elt:active, a.header-menu-elt:hover {
+.a.header-menu-elt:active, a.header-menu-elt:hover {
 	background-color: #0000bb;
 	color: #cccccc;
-	font-size: large;
+	font-size: medium;
 	padding: 20px;
 	text-decoration: none;
 }

@@ -126,9 +126,8 @@ fetch("get_data3.php")
             // Fonction pour créer un menu déroulant avec la valeur actuelle
             
             function createSelect(name, value, niveau) {
-                	let options = `<option value=" " ${value === " " ? "selected" : ""}>-</option>`;
+                	let options = `<option value="0" ${value === "0" ? "selected" : ""}> </option>`;
 
-    			if (niveau >= 1) options += `<option value="0" ${value === "0" ? "selected" : ""}></option>`;
     			if (niveau >= 1) options += `<option value="1" ${value === "1" ? "selected" : ""}>Ligne 1</option>`;
     			if (niveau >= 1) options += `<option value="2" ${value === "2" ? "selected" : ""}>Ligne 2</option>`;
     			if (niveau >= 1) options += `<option value="3" ${value === "3" ? "selected" : ""}>Ligne 3</option>`;
@@ -140,8 +139,39 @@ fetch("get_data3.php")
     			if (niveau >= 3) options += `<option value="9" ${value === "9" ? "selected" : ""}>Ligne 9</option>`;
     			if (niveau >= 3) options += `<option value="10" ${value === "10" ? "selected" : ""}>Ligne 10</option>`;
     			if (niveau >= 3) options += `<option value="11" ${value === "11" ? "selected" : ""}>Ligne 11</option>`;
+    			if (niveau >= 4) options += `<option value="12" ${value === "12" ? "selected" : ""}>Ligne 12</option>`;
+    			if (niveau >= 4) options += `<option value="13" ${value === "13" ? "selected" : ""}>Ligne 13</option>`;
+    			if (niveau >= 5) options += `<option value="14" ${value === "14" ? "selected" : ""}>Ligne 14</option>`;
+    			if (niveau >= 5) options += `<option value="15" ${value === "15" ? "selected" : ""}>Ligne 15</option>`;
+    			if (niveau >= 5) options += `<option value="16" ${value === "16" ? "selected" : ""}>Ligne 16</option>`;
+    			if (niveau >= 5) options += `<option value="17" ${value === "17" ? "selected" : ""}>Ligne 17</option>`;
+    			if (niveau >= 5) options += `<option value="18" ${value === "18" ? "selected" : ""}>Ligne 18</option>`;
     			if (niveau >= 3) options += `<option value="60" ${value === "60" ? "selected" : ""}>Ligne 60</option>`;
     			if (niveau >= 3) options += `<option value="61" ${value === "61" ? "selected" : ""}>Ligne 61</option>`;
+    			if (niveau >= 4) options += `<option value="62" ${value === "62" ? "selected" : ""}>Ligne 62</option>`;
+    			if (niveau >= 4) options += `<option value="63" ${value === "63" ? "selected" : ""}>Ligne 63</option>`;
+    			if (niveau >= 4) options += `<option value="64" ${value === "64" ? "selected" : ""}>Ligne 64</option>`;
+    			if (niveau >= 5) options += `<option value="65" ${value === "65" ? "selected" : ""}>Ligne 65</option>`;
+    			if (niveau >= 4) options += `<option value="101" ${value === "101" ? "selected" : ""}>Ligne 101</option>`;
+    			if (niveau >= 4) options += `<option value="102" ${value === "102" ? "selected" : ""}>Ligne 102</option>`;
+    			if (niveau >= 4) options += `<option value="103" ${value === "103" ? "selected" : ""}>Ligne 103</option>`;
+    			if (niveau >= 4) options += `<option value="104" ${value === "104" ? "selected" : ""}>Ligne 104</option>`;
+    			if (niveau >= 5) options += `<option value="105" ${value === "105" ? "selected" : ""}>Ligne 105</option>`;
+    			if (niveau >= 5) options += `<option value="106" ${value === "106" ? "selected" : ""}>Ligne 106</option>`;
+    			if (niveau >= 5) options += `<option value="151" ${value === "151" ? "selected" : ""}>Ligne 151</option>`;
+    			if (niveau >= 4) options += `<option value="201" ${value === "201" ? "selected" : ""}>Ligne 201</option>`;
+    			if (niveau >= 4) options += `<option value="202" ${value === "202" ? "selected" : ""}>Ligne 202</option>`;
+    			if (niveau >= 4) options += `<option value="203" ${value === "203" ? "selected" : ""}>Ligne 203</option>`;
+    			if (niveau >= 5) options += `<option value="204" ${value === "204" ? "selected" : ""}>Ligne 204</option>`;
+    			if (niveau >= 5) options += `<option value="205" ${value === "205" ? "selected" : ""}>Ligne 205</option>`;
+    			if (niveau >= 5) options += `<option value="206" ${value === "206" ? "selected" : ""}>Ligne 206</option>`;
+    			if (niveau >= 5) options += `<option value="251" ${value === "251" ? "selected" : ""}>Ligne 251</option>`;
+    			if (niveau >= 4) options += `<option value="601" ${value === "601" ? "selected" : ""}>Ligne 601</option>`;
+    			if (niveau >= 4) options += `<option value="602" ${value === "602" ? "selected" : ""}>Ligne 602</option>`;
+    			if (niveau >= 5) options += `<option value="603" ${value === "603" ? "selected" : ""}>Ligne 603</option>`;
+    			if (niveau >= 4) options += `<option value="651" ${value === "651" ? "selected" : ""}>Ligne 651</option>`;
+    			if (niveau >= 4) options += `<option value="652" ${value === "652" ? "selected" : ""}>Ligne 652</option>`;
+    			if (niveau >= 5) options += `<option value="653" ${value === "653" ? "selected" : ""}>Ligne 653</option>`;
 
     			return `
         		<td>
@@ -154,15 +184,18 @@ fetch("get_data3.php")
             
             // Version de createSelect spéciale pour les nocturnes 
             function createSelect2(name, value, niveau) {
-                return `
-                    <td>
-                        <select name="${name}" data-id="${vehicule.ID}">
-                            <option value=" " ${value === " " ? "selected" : ""}>-</option>
-                            <option value="1001" ${value === "1001" ? "selected" : ""}>Ligne PL1</option>
-                            <option value="1002" ${value === "1002" ? "selected" : ""}>Ligne PL2</option>
-                            <option value="1003" ${value === "1003" ? "selected" : ""}>Ligne PL3</option>
-                        </select>
-                    </td>
+                let options = `<option value="0" ${value === "0" ? "selected" : ""}> </option>`;
+
+    			if (niveau >= 3) options += `<option value="1001" ${value === "1001" ? "selected" : ""}>Ligne PL1</option>`;
+    			if (niveau >= 4) options += `<option value="1002" ${value === "1002" ? "selected" : ""}>Ligne PL2</option>`;
+    			if (niveau >= 5) options += `<option value="1003" ${value === "1003" ? "selected" : ""}>Ligne PL3</option>`;
+
+    			return `
+        		<td>
+            			<select name="${name}" data-id="${vehicule.ID}">
+                			${options}
+            			</select>
+        		</td>
                 `;
             }
 

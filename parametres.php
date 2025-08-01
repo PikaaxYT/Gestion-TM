@@ -90,6 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="header-menu outfit-regular">
         <center>        
             <a href="accueil.php" class="header-menu-elt">Accueil</a>
+            <a href="affectations.php" class="header-menu-elt">Affectations</a>
             <a href="vehicules.php" class="header-menu-elt">Véhicules</a>
             <a href="ajout-vehicule.php" class="header-menu-elt">Ajouter un véhicule</a>
             <a href="pannes.php" class="header-menu-elt">Historique des pannes</a>

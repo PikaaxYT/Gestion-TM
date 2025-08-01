@@ -12,6 +12,7 @@ if (!isset($_SESSION['niveau'])) {
     <meta charset="UTF-8">
     <link href="styles.css" rel="stylesheet">
     <link href="fonts.css" rel="stylesheet">
+    <link rel="icon" href="data:,">
     <title>Liste des véhicules - Outil de gestion TM (par Pikaax)</title>
     <style>
         /* Style pour le tableau */
@@ -45,7 +46,7 @@ if (!isset($_SESSION['niveau'])) {
     </div>
     <div class="header-menu outfit-regular">
         <center>        
-            <a href="accueil.php" class="header-menu-elt">Accueil</a>
+            <a href="accueil.php" class="header-menu-elt active">Accueil</a>
             <a href="affectations.php" class="header-menu-elt active">Affectations</a>
             <a href="vehicules.php" class="header-menu-elt">Véhicules</a>
             <a href="ajout-vehicule.php" class="header-menu-elt">Ajouter un véhicule</a>
@@ -56,6 +57,7 @@ if (!isset($_SESSION['niveau'])) {
     </div>
     <div class="outfit-regular">
         <h1>Liste des Véhicules</h1>
+        <p>Les modifications sont sauvegardées automatiquement</p>
         <table>
             <thead>
                 <tr>
@@ -155,6 +157,34 @@ if (!isset($_SESSION['niveau'])) {
         return "";
     }
     
+   
+function activerModification() {
+  document.querySelectorAll('input[name]').forEach(input => {
+    input.addEventListener('change', function () {
+      const id = this.dataset.id;
+      const champ = this.name; 
+      const value = this.value;
+
+      fetch('update_vehicules.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `id=${encodeURIComponent(id)}&champ=${encodeURIComponent(champ)}&valeur=${encodeURIComponent(value)}`
+      })
+      .then(res => {
+        if (!res.ok) throw new Error('HTTP error ' + res.status);
+        return res.text();
+      })
+      .then(data => {
+        console.log('Réponse du serveur:', data);
+      })
+      .catch(error => {
+        console.error("Erreur lors du fetch :", error);
+      });
+    });
+  });
+}
+
+    
     // Récupération des données depuis get_data.php
     fetch("get_data.php")
     .then(response => response.json())
@@ -173,7 +203,7 @@ if (!isset($_SESSION['niveau'])) {
             let tdCarburant = `<td style="${colorCarb}">${vehicule.Carburant}</td> <!-- Correspond à la clé 'Carburant' du PHP -->`;
             
             let tdPlaces = `<td>${vehicule.Places}</td> <!-- Correspond à la clé 'Places' du PHP -->`;
-            let tdKM = `<td>${vehicule.KM}</td> <!-- Correspond à la clé 'KM' du PHP -->`;
+            let tdKM = `<td><input type="text" class="input" name="KM" value="${vehicule.KM}" data-id="${vehicule.ID}"></td> <!-- Correspond à la clé 'KM' du PHP -->`;
             
             // Modification de couleur pour l'état technique
             let colorEtatTechnique = "";
@@ -184,7 +214,7 @@ if (!isset($_SESSION['niveau'])) {
             } else if (vehicule.EtatTechnique > 70) {
             	    colorEtatTechnique = "background-color: #88FF88;";
             }
-            let tdEtatTechnique = `<td style="${colorEtatTechnique}">${vehicule.EtatTechnique}</td> <!-- Correspond à la clé 'EtatTechnique' du PHP -->`;
+            let tdEtatTechnique = `<td style="${colorEtatTechnique}"><input type="text" class="input" name="EtatTechnique" value="${vehicule.EtatTechnique}" data-id="${vehicule.ID}"></td> <!-- Correspond à la clé 'EtatTechnique' du PHP -->`;
 
             // Modification de couleur pour l'état intérieur
             let colorEtatInterieur = "";
@@ -195,20 +225,20 @@ if (!isset($_SESSION['niveau'])) {
             } else if (vehicule.EtatInterieur > 70) {
             	    colorEtatInterieur = "background-color: #88FF88;";
             }
-            let tdEtatInterieur = `<td style="${colorEtatInterieur}">${vehicule.EtatInterieur}</td> <!-- Correspond à la clé 'EtatInterieur' du PHP -->`;
+            let tdEtatInterieur = `<td style="${colorEtatInterieur}"><input type="text" class="input" name="EtatInterieur" value="${vehicule.EtatInterieur}" data-id="${vehicule.ID}"></td> <!-- Correspond à la clé 'EtatInterieur' du PHP -->`;
 
             let tdMES = `<td>${vehicule.MES}</td> <!-- Correspond à la clé 'MES' du PHP -->`;
             let tdGarantie = `<td>${vehicule.Garantie}</td> <!-- Correspond à la clé 'Garantie' du PHP -->`;
             
             // Modification de couleur pour le CT
             let colorCT = getCTColor(vehicule.CT);
-            let tdCT = `<td style="${colorCT}">${vehicule.CT}</td> <!-- Correspond à la clé 'CT' du PHP -->`;
+            let tdCT = `<td style="${colorCT}"><input type="text" class="input" name="CT" value="${vehicule.CT}" data-id="${vehicule.ID}"></td> <!-- Correspond à la clé 'CT' du PHP -->`;
             
             // Modification de couleur pour la Révision
             let colorRev = getRevColor(vehicule.Revision);
-            let tdRevision = `<td style="${colorRev}">${vehicule.Revision}</td> <!-- Correspond à la clé 'Revision' du PHP -->`;
+            let tdRevision = `<td style="${colorRev}"><input type="text" class="input" name="Revision" value="${vehicule.Revision}" data-id="${vehicule.ID}"></td> <!-- Correspond à la clé 'Revision' du PHP -->`;
             
-            let tdArgus = `<td>${vehicule.Argus}</td> <!-- Correspond à la clé 'Argus' du PHP -->`;
+            let tdArgus = `<td><input type="text" class="input" name="Argus" value="${vehicule.Argus}" data-id="${vehicule.ID}"></td> <!-- Correspond à la clé 'Argus' du PHP -->`;
             
             // Modification de couleur pour le statut
             let colorStatut = getStatutColor(vehicule.Statut);
@@ -220,7 +250,11 @@ if (!isset($_SESSION['niveau'])) {
 
             tbody.appendChild(row);
         });
+        activerModification();
     })
+    
+
+
     .catch(error => console.error("Erreur : " + error));
 	</script>
 </body>

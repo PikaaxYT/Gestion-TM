@@ -21,6 +21,7 @@ if (!isset($_SESSION['niveau'])) {
 	</div>
 		<div class="header-menu outfit-regular">
 		<center>        
+		<a href="http://pikaax.rf.gd/index.html" class="header-menu-elt">Retour au site</a>
             <a href="accueil.php" class="header-menu-elt active">Accueil</a>
             <a href="affectations.php" class="header-menu-elt">Affectations</a>
             <a href="vehicules.php" class="header-menu-elt">Véhicules</a>
@@ -34,7 +35,7 @@ if (!isset($_SESSION['niveau'])) {
 			<p>Cet outil vous permet de visualiser l'ensemble de vos véhicules sur Transport-Manager sans avoir à vous connecter en jeu</p>
 <?php
 // 1. Version locale
-$localVersion = '1.3';
+$localVersion = '1.3.1';
 
 // 2. Récupération de la dernière release sur GitHub
 $repo = 'PikaaxYT/Gestion-TM';
