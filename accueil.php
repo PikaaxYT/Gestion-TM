@@ -35,7 +35,7 @@ if (!isset($_SESSION['niveau'])) {
 			<p>Cet outil vous permet de visualiser l'ensemble de vos véhicules sur Transport-Manager sans avoir à vous connecter en jeu</p>
 <?php
 // 1. Version locale
-$localVersion = '1.3.1';
+$localVersion = '1.3.2';
 
 // 2. Récupération de la dernière release sur GitHub
 $repo = 'PikaaxYT/Gestion-TM';
