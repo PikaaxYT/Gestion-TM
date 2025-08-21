@@ -30,7 +30,7 @@ if ($stmt->execute()) {
     echo "Vous serez automatiquement redirigé à l'historique des pannes dans 2 secondes";
     echo '<script>
         setTimeout(function() {
-            window.location.href = "pannes.html";
+            window.location.href = "pannes.php";
         }, 2000);
     </script>';
 } else {
