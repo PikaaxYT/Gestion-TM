@@ -120,7 +120,7 @@ if ($stmt->execute()) {
     echo "Vous serez automatiquement redirigé à la liste des véhicules dans 2 secondes";
     echo '<script>
         setTimeout(function() {
-            window.location.href = "vehicules.html";
+            window.location.href = "vehicules.php";
         }, 2000);
     </script>';
 } else {
